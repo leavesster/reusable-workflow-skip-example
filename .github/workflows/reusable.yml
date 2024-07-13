@@ -1,0 +1,19 @@
+name: Reusable Workflow
+
+on:
+  workflow_call:
+  push:
+    branches:
+      - test
+    paths-ignore:
+      - "**.md"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Run a script
+        run: echo "Hello, World!"
